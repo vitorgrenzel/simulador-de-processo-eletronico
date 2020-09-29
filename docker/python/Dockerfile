@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 
 RUN apk update \
-    && apk add --no-cache --virtual bash \
+    && apk add --no-cache bash \
     && apk add gcc \
     && apk add musl-dev \
     && apk add linux-headers \

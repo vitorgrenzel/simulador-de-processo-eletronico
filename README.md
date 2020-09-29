@@ -55,3 +55,14 @@ create an admin account
 ```
 $ docker exec -it python ./manage.py createsuperuser
 ```
+
+sudo kill `sudo lsof -t -i:3306`
+
+
+# TODO
+
+- Verificar se usuário existe 
+    Enviar e-mail com link para criar senha ao importar usuários
+    | Informar admin que email já existe
+    
+- 
