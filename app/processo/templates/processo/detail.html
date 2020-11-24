@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static i18n widget_tweaks %}
+
+
+{% block content %}
+
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding: 0 5px;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border: auto;
+        border-bottom: none;
+    }
+
+    fieldset {
+        border: 2px groove threedface;
+        padding: 5px;
+        width: 100%;
+    }
+</style>
+
+<div class="container mt-2 pt-2">
+    <div class="row">
+        <h3>Consulta Processual - Detalhes do Processo</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 pb-2 pt-2">
+
+            <fieldset class="mb-3">
+                <legend>Capa do processo</legend>
+                <p>Nº do processo: {{ object.id }}</p>
+                <p>Competência: {{ object.competencia }}</p>
+            </fieldset>
+
+
+            <fieldset class="mb-3">
+                <legend>Assunto Principal</legend>
+                {% for assuntos in object.assunto_principal.all %}
+                <li>{{ assuntos.nome }} </li>
+                {% endfor %}
+                <br>
+            </fieldset>
+
+            <fieldset class="mb-3">
+                <legend>Assuntos</legend>
+                {% for assuntos in object.assuntos.all %}
+                <li>{{ assuntos.nome }} </li>
+                {% endfor %}
+                <br>
+            </fieldset>
+
+            <fieldset class="mb-3">
+                <legend>Movimentações pendentes</legend>
+                <br>
+            </fieldset>
+
+            <fieldset class="mb-3">
+                <legend>Partes e Representantes</legend>
+                {% for parte_autora in object.parte_autora.all %}
+                <li>{{ parte_autora.nome }}</li>
+                {% endfor %}
+                <br>
+            </fieldset>
+
+            <fieldset class="mb-3">
+                <legend>Informações Adicionais</legend>
+                <br>
+            </fieldset>
+
+            <fieldset class="mb-3">
+                <legend>Documentos</legend>
+                {% for documentos in object.documentos.all %}
+                <li>{{ documentos.upload }}</li>
+                {% endfor %}
+                <br>
+            </fieldset>
+
+        </div>
+    </div>
+</div>
+{% endblock%}

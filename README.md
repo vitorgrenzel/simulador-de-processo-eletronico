@@ -57,7 +57,8 @@ $ docker exec -it python ./manage.py createsuperuser
 ```
 
 sudo kill `sudo lsof -t -i:3306`
-
+13306
+sudo /etc/init.d/mysql stop
 
 # TODO
 

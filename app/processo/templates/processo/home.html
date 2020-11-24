@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static i18n widget_tweaks %}
+
+
+{% block content %}
+
+<style>
+  legend {
+    display: block;
+    width: auto;
+    padding: 0 5px;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+    border: auto;
+    border-bottom: none;
+  }
+
+  fieldset {
+    border: 2px groove threedface;
+    padding: 5px;
+    width: 100%;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+
+<div class="container mt-2 pt-2">
+  <div class="row">
+    <h3>Painel do Advogado</h3>
+  </div>
+  <div class="row">
+    <div class="col-12 pb-2 pt-2">
+
+      <fieldset class="mb-3">
+        <legend>Citações/Intimidações</legend>
+
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Quantidade de processos</th>
+          </tr>
+          <tr>
+            <td>Processos pendentes de citação/Intimação - Urgentes</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Processos pendentes de citação/Intimação</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Processos pendentes de citação - art 334 CPC</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Processos com intimação de pauta</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Processos com prazo em aberto</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Decursos de prazo nos últimos 30 dias</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <br>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>Fórum de conciliações</legend>
+        <br>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>Movimentações pendentes</legend>
+        <br>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>Recursos do Tribunal</legend>
+        <br>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>Substalecimentos</legend>
+        <br>
+      </fieldset>
+
+    </div>
+  </div>
+</div>
+{% endblock%}

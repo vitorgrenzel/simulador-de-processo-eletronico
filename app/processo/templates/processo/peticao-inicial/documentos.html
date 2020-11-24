@@ -1,0 +1,97 @@
+{% extends 'processo/peticao-inicial.html' %}
+
+{% load static crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding: 0 5px;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border: auto;
+        border-bottom: none;
+    }
+
+    fieldset {
+        border: 2px groove threedface;
+        padding: 5px;
+        width: 100%;
+    }
+</style>
+
+<div class="container mt-2 pt-2">
+    <div class="row">
+        <h3>Peticionamento Eletrônico (5 de 5) - Documentos</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-2 bg-light p-2">
+            Informações do processo &nbsp;>> &nbsp; Assuntos &nbsp;>> &nbsp; Partes Autoras &nbsp;>> &nbsp; Partes Réus
+            &nbsp;>> &nbsp; <b>Documentos</b>
+        </div>
+
+        <br>
+        <div class="col-12 pb-2 pt-2">
+            <form action="" role="form" method="post">
+                <div class="row">
+                    {% csrf_token %}
+
+                    <div class="col-md-12 mb-3 mt-3">
+
+                        <fieldset>
+
+                            <fieldset>
+                                <legend>Informações Adicionais</legend>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ form.tramitação_doenca|as_crispy_field }}
+                                        {{ form.tramitação_deficiencia|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ form.antecipacao_tutela|as_crispy_field }}
+                                        {{ form.tramitação_crianca|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ form.tramitação_idoso|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Conciliação</legend>
+                                {{ form.consiliacao|as_crispy_field }}
+                            </fieldset>
+
+                            <div class="mt-3 row align-items-center">
+
+                                <div class="col-12 text-center">
+                                    <a href="http://localhost:8888/admin/processo/documentos/add/"
+                                        target="_blank">
+                                        Adicionar
+                                    </a>
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form.documentos|as_crispy_field }}
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-primary float-right">
+                            Concluir
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+{% endblock%}

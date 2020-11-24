@@ -1,0 +1,75 @@
+{% extends 'processo/peticao-inicial.html' %}
+
+{% load static crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding: 0 5px;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border: auto;
+        border-bottom: none;
+    }
+
+    fieldset {
+        border: 2px groove threedface;
+        padding: 5px;
+        width: 100%;
+    }
+</style>
+
+<div class="container mt-2 pt-2">
+    <div class="row">
+        <h3>Peticionamento Eletrônico (1 de 5) - Informações do processo</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-2 bg-light p-2">
+            <b>Informações do processo</b>  &nbsp;>> &nbsp; Assuntos  &nbsp;>> &nbsp; Partes Autoras  &nbsp;>> &nbsp; Partes Réus  &nbsp;>> &nbsp; Documentos
+        </div>
+
+        <br>
+        <div class="col-12 pb-2 pt-2">
+            <form action="" role="form" method="post">
+                <div class="row">
+                    {% csrf_token %}
+
+                    <fieldset>
+                        <legend>Informações preliminares</legend>
+
+                        <div class="col-md-12 mb-3 mt-3">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ form.localidade|as_crispy_field }}
+                                    {{ form.rito|as_crispy_field }}
+                                    {{ form.area|as_crispy_field }}
+                                    {{ form.nivel_sigilo|as_crispy_field }}
+                                    {{ form.classe_procedural|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6">
+                                    {{ form.valor_da_causa|as_crispy_field }}
+                                    {{ form.advogados|as_crispy_field }}
+                                    {{ form.simulacao|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-primary float-right">
+                            Próximo Passo
+                        </button>
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+{% endblock%}

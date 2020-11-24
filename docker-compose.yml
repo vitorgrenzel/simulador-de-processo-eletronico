@@ -1,19 +1,25 @@
 version: '3.7'
 services:
-  mysql:
-    build: docker/mysql
-    container_name: mysql
+  postgresql:
+    image: postgres:11.5-alpine
     ports:
-      - 3306:3306
-    volumes:
-      - data-volume:/var/lib/mysql
+      - 5432:5432
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=django
-    healthcheck:
-      test: "exit 0"
-  web:
-    container_name: web
+      - POSTGRES_USER=imed
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=imed
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  django:
+    container_name: django
+    build: ./docker/python
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
+    links:
+      - postgresql
+  nginx:
+    container_name: nginx
     build: ./docker/nginx
     ports:
       - 8888:80
@@ -21,26 +27,13 @@ services:
       - ./app:/var/www/html
     working_dir: /etc/nginx
     links:
-      - python
-  python:
-    container_name: python
-    build: ./docker/python
-    volumes:
-      - ./app:/var/www/html
-    working_dir: /var/www/html
-    depends_on:
-      - mysql
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    depends_on:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
+      - django
+  pgadmin:
+    image: dpage/pgadmin4
     ports:
-      - 8183:80
-    restart: always
-
+      - 80:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
 volumes:
-  data-volume:
+  pg_data:

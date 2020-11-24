@@ -1,0 +1,100 @@
+
+Petição inicial
+    Informações do processo
+    Assuntos
+    Partes Autoras
+    Partes Réus
+    Documentos
+
+
+Informações do processo
+    Informações preliminares
+        Desejo entrar com ação em: 
+            String - ex: Porto Alegre - Foro Central
+        Rito:
+            RITO ORDINÁRIO (COMUM)
+        ÁREA:
+            Cível - Ações Coletivas
+            Cível - Cível
+            Cível - Empresas
+            Cível - Recuperação Juridical e Falência
+            Cível - Registros Públicos
+            Familia/Sucessões/Curatelas
+        Classe Processual:
+            Muitos dados, pode fazer uma nova tabela para cadastro
+        Sigilo:
+            Sem sigilo (Nível 0)
+            Segredo de Justiça (Nível 1)
+        Valor da Causa:
+            Escrever ao lado se deixar em branco significa Não se Aplica
+        Outros Advogados a serem incluídos:
+            Buscar
+            Listar : usuário e Ações
+        
+Assuntos:
+    Assuntos do processo:
+        Competência:
+            Está ligado com a área que foi selecionada
+        Selecionar Assunto:
+            Colocar link para consulta
+        Assunto Principal:
+            Incluir assunto principal
+        
+        (Tem um campo instruções 04:50)
+
+
+Parte Autora:
+    Tipo Pessoa:
+        Pessoa Física
+        Pessoa Juridica
+
+    CPF/CNPJ
+    Nome / Razão Social
+    Informações Extas
+    Principal
+        Sim
+        Não
+
+
+Parte Réus
+    Mesma coisa que a etapa anterior
+    QUALIFICAÇÂO
+        Requerido
+
+Documentos
+    Informações Adicionais:
+        Requer prioridade de tramitação - Doença grave
+        Requer prioridade de tramitação - Pessoa com deficiência
+        Requer Liminar/Antecipação de Tutela
+        Requer prioridade de tramitação - Criança e Adolescente
+        Requer prioridade de tramitação - Idoso
+    Consiliação:
+        Manifesto que não tenho interesse em conciliar (art. 334, paragrafo 5°CPC)
+
+    Documento:
+        Arquivo
+        Tipo: String
+        Sigilo:
+            Sem sigilo (Nível 0)
+            Segredo de Justiça (Nível 1)
+
+
+
+Faltante: 
+    - Fazer a ultima etapa da petição inicial de incluir Documentos 
+        (Problema de estar em duas tabelas para colocar no mesmo form)
+
+
+    - Fazer a parte da Movimentação
+    - Trocar componente ManyToMamny para ter campo de search     
+
+
+
+
+
+
+
+
+
+
+

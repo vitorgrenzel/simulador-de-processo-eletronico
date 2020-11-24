@@ -1,0 +1,80 @@
+{% extends 'processo/peticao-inicial.html' %}
+
+{% load static crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding: 0 5px;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border: auto;
+        border-bottom: none;
+    }
+
+    fieldset {
+        border: 2px groove threedface;
+        padding: 5px;
+        width: 100%;
+    }
+</style>
+
+<div class="container mt-2 pt-2">
+    <div class="row">
+        <h3>Peticionamento Eletrônico (2 de 5) - Assuntos</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-2 bg-light p-2">
+            Informações do processo  &nbsp;>> &nbsp; <b>Assuntos</b>  &nbsp;>> &nbsp; Partes Autoras  &nbsp;>> &nbsp; Partes Réus  &nbsp;>> &nbsp; Documentos
+        </div>
+
+        <br>
+        <div class="col-12 pb-2 pt-2">
+            <form action="" role="form" method="post">
+                <div class="row">
+                    {% csrf_token %}
+
+                    <fieldset>
+                        <legend>Assuntos do processo</legend>
+
+                        <div class="col-md-12 mb-3 mt-3">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ form.competencia|as_crispy_field }}
+
+                                    {{ form.assuntos|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6">
+
+                                    <fieldset class="mb-3">
+                                        <legend style="color: red;">Instruções</legend>
+                                        <p class="mb-0">- Cadastre por primeiro o assunto principal. É o direito material descrito nos fatos, fundamentos e pedidos</p>
+                                        <p class="mb-0">- Procure cadastrar os assuntos o mais específico possível. Se necessário utilize os assuntos complementares para melhorar classificação do processo.</p>
+                                        <p class="mb-0">- Utilize o assunto do ramo do direito adequado ao contexto do processo, especificamente quando houver diferentes assuntos com termos ou expressões identicas.</p>
+                                        <p class="mb-0">- Na dúvida consulte as informações dos glossários disoníveis em cada assunto</p>
+                                    </fieldset>
+
+                                    {{ form.assunto_principal|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-primary float-right">
+                            Próximo Passo
+                        </button>
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+{% endblock%}

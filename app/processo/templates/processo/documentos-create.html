@@ -1,0 +1,18 @@
+{% extends 'admin/base_site.html' %}
+
+{% load static crispy_forms_tags %}
+
+{% block content %}
+
+<h3 class="mt-3">Cadastro de Documentos</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit">Registrar</button>
+</form>
+
+
+{% endblock%}

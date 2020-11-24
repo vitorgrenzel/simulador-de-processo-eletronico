@@ -1,0 +1,18 @@
+{% extends 'processo/peticao-inicial.html' %}
+
+{% load static crispy_forms_tags %}
+
+{% block content %}
+
+<h3>Cadastro</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit">Próximo Passo</button>
+</form>
+
+
+{% endblock%}

@@ -1,0 +1,22 @@
+[
+    {
+        "model": "users.user",
+        "pk": "c790e88c-60b8-44c9-a4c2-0f0ea1e35cc3",
+        "fields": {
+            "password": "pbkdf2_sha256$180000$7UtByqak9FWG$94iw5cItqNRSg6z0saMesxk5/17LO4UPF6U6MJdPzN4=",
+            "last_login": "2020-11-10T02:21:19.143Z",
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-11-10T02:21:14.734Z",
+            "email": "1118563@imed.edu.br",
+            "nome": null,
+            "matricula": "",
+            "alterar_senha": "78c364cce2872f66028fa2a4329a00ac",
+            "user_permissions": [],
+            "groups": []
+        }
+    }
+]

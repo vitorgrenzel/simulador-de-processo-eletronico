@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static i18n widget_tweaks %}
+
+
+{% block css %}{{ block.super }}
+<!-- <link rel="stylesheet" href="{% static 'css/home.css' %}" /> -->
+{% endblock css %}
+
+
+{% block navbar %}
+<li class="nav-item dropdown hide-in-home show">
+    <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownBaseHome"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>{% trans 'Information' %}</span>
+    </a>
+</li>
+{{ block.super }}
+{% endblock navbar %}
+
+{% block content %}
+<div class="container">
+  <div class="row full-vh-height justify-content-center align-content-center align-items-center">
+    <div class="col-sm-10 col-md-9 col-lg-7" id="page-content">
+
+      <h2 class="title">Book<span>Digital</span></h2>
+
+      <form method="post" id="search_form" class="search mb-3" autocomplete="off">
+        {% csrf_token %}
+
+        <div class="a-field search__field">
+          <input type="text" name="bar_code" maxlength="20" minlength="8" inputmode="numeric" pattern="[0-9]*" placeholder=" " id="search-input" class="r-text-field a-field__input search__input" required="">
+          <button class="r-button search__button search__clear" type="reset">
+            <div class="search__icon search__icon-clear">
+              <i class="fas fa-times"></i>
+            </div>
+          </button>
+          <label class="a-field__label-wrap search__hint" for="search-input">
+            <span class="a-field__label">{% trans 'What are you looking for?' %}</span>
+          </label>
+        </div>
+
+        <button type="submit" id="search_sku" class="r-button search__button search__submit" type="submit">
+          <div class="search__icon search__icon-search">
+            <i class="fas fa-search"></i>
+          </div>
+        </button>
+      </form>
+
+      <div id="scanner" style="display: none;">
+        <div id="scanner-content">
+          <h3 class="text-center">{% trans 'Scan Barcode' %}</h3>
+
+          <div class="position-relative">
+            <div class="over-video">
+              <div class="detector a11"></div>
+              <div class="detector a12"></div>
+              <div class="detector a21"></div>
+              <div class="detector a22"></div>
+            </div>
+            <video id="video"></video>
+          </div>
+
+        </div>
+        <div id="scanner-config" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+              <button id="resetButton" class="btn btn-danger" type="button">
+                <i class="fas fa-stop"></i>
+              </button>
+            </div>
+
+            <div class="cam-settings d-flex align-items-center">
+              <div class="collapse" id="collapseExample">
+                <div id="sourceSelectPanel">
+                  <select id="sourceSelect" class="appearance-select" style="max-width:400px">
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary ml-2" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-cog"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div id="startButton" class="barcode d-flex align-content-center justify-content-center flex-column">
+        <i class="fas fa-barcode"></i>
+        <p class="text-center mb-0">{% trans 'Scan' %}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<!-- <script class="cms-plugin-reload" src="{% static 'js/home.js' %}"></script> -->
+{% endblock js %}

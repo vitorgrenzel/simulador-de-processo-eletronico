@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static i18n widget_tweaks %}
+
+
+{% block content %}
+
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding: 0 5px;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border: auto;
+        border-bottom: none;
+    }
+
+    fieldset {
+        border: 2px groove threedface;
+        padding: 5px;
+        width: 100%;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<div class="container mt-2 pt-2">
+    <div class="row">
+        <h3>Relatórios de Processos</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 pb-2 pt-2">
+
+            <table>
+                <tr>
+                    <th>Número do Processo</th>
+                    <th>Autores Principais</th>
+                    <th>Localidade</th>
+                    <th>Assunto</th>
+                </tr>
+
+                <ul>
+                    {% for processo in processo_list %}
+
+                    <tr>
+                        <td>
+                            <a href="/processo/{{ processo.id }}" rel="noopener noreferrer">
+                                {{ processo.id }}
+                            </a>
+                        </td>
+                        <td>
+                            {% for parte_autora in processo.parte_autora.all %}
+                            {{ parte_autora.nome }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>{{ processo.localidade }}</td>
+                        <td>
+                            {% for assuntos in processo.assuntos.all %}
+                            {{ assuntos.nome }}<br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </ul>
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock%}
